@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Heart Health Predictor</title>
+		<link rel="stylesheet" href="{% static 'predictor/style.css' %}" />
+	</head>
+
+	<body>
+		<div class="card">
+			<h1>🫀 Heart Health Predictor</h1>
+			<p class="subtitle">
+				Estimate heart disease risk using machine learning
+			</p>
+			<div class="form-container">
+				<form id="predictForm" class="form-column">
+					<label>Age</label>
+					<input type="number" id="Age" required />
+
+					<label>Sex</label>
+					<select id="Sex">
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+
+					<label>Chest Pain Type</label>
+					<select id="ChestPainType">
+						<option value="ATA">Atypical Angina</option>
+						<option value="NAP">Non-anginal Pain</option>
+						<option value="ASY">Asymptomatic</option>
+						<option value="TA">Typical Angina</option>
+					</select>
+
+					<label>Resting Blood Pressure</label>
+					<input type="number" id="RestingBP" />
+
+					<label>Cholesterol</label>
+					<input type="number" id="Cholesterol" />
+
+					<label>Fasting Blood Sugar</label>
+					<select id="FastingBS">
+						<option value="0">Normal</option>
+						<option value="1">High</option>
+					</select>
+
+					<label>Resting ECG</label>
+					<select id="RestingECG">
+						<option value="Normal">Normal</option>
+						<option value="ST">ST Abnormality</option>
+						<option value="LVH">LV Hypertrophy</option>
+					</select>
+
+					<label>Max Heart Rate</label>
+					<input type="number" id="MaxHR" />
+
+					<label>Exercise Angina</label>
+					<select id="ExerciseAngina">
+						<option value="N">No</option>
+						<option value="Y">Yes</option>
+					</select>
+
+					<label>Oldpeak</label>
+					<input type="number" step="0.1" id="Oldpeak" />
+
+					<label>ST Slope</label>
+					<select id="ST_Slope">
+						<option value="Up">Up</option>
+						<option value="Flat">Flat</option>
+						<option value="Down">Down</option>
+					</select>
+
+					<label>Model</label>
+					<select id="model">
+						<option value="logistic">Logistic Regression</option>
+						<option value="tree">Decision Tree</option>
+					</select>
+
+					<button type="submit">Analyze Heart Risk</button>
+				</form>
+			</div>
+
+			<div id="result" class="result hidden"></div>
+
+			<p class="disclaimer">
+				⚠️ Educational use only — not a medical diagnosis
+			</p>
+		</div>
+
+		<script src="{% static 'predictor/app.js' %}"></script>
+	</body>
+</html>
